@@ -3,6 +3,7 @@ from dbConn import initialize_database
 from taskManagement import *  
 from roleSelection import *
 from subsidiary import *
+from config import BOT_TOKEN
 
 async def handle_inline_button(update, context):
     """Handle inline button presses (paste command)."""
@@ -15,7 +16,7 @@ async def handle_inline_button(update, context):
 
 def main():
     initialize_database()
-    app = Application.builder().token("7774388217:AAGwkpIFTzaQKSvOo1QXRGnjzXTbwqZ02qo").build()  
+    app = Application.builder().token(BOT_TOKEN).build()  
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("view_users", view_users))
 
